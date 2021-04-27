@@ -1,12 +1,12 @@
 name: Weekly Team Sync
 on:
   schedule:
-    - cron: 57 20 27 4 2
+    - cron: 58 20 27 4 2
 
 jobs:
   create_issue:
     name: Create team sync issue
-    runs-on: ubuntu-latest
+    runs-on: node12
     permissions:
       issues: write
     steps:
