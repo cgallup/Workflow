@@ -1,17 +1,20 @@
 name: Weekly Team Sync
 on:
   schedule:
-    - cron: 0 21 27 4 2
+    - cron: 0 0 0 0 0
 
 jobs:
   create_issue:
     name: Create team sync issue
-    runs-on: node12
+    runs-on: ubuntu-latest
     permissions:
       issues: write
     steps:
+      - name: Set Date
+        run: echo "DATE=$(date -u '+%F')" >> $GITHUB_ENV
+        
       - name: Create team sync issue
-        uses: imjohnbo/issue-bot@v3.0
+        uses: imjohnbo/issue-bot@v2.0
         with:
           assignees: "monalisa, cgallup, hubot"
           labels: "weekly sync, docs-team"
@@ -32,7 +35,4 @@ jobs:
           close-previous: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-          runs:
-            using: 'node12'
-            main: 'dist/index.js'
+        
