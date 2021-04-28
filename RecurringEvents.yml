@@ -14,7 +14,7 @@ jobs:
         run: echo "DATE=$(date -u '+%F')" >> $GITHUB_ENV
         
       - name: Create team sync issue
-        uses: imjohnbo/issue-bot@v2.0
+        uses: imjohnbo/issue-bot@v3.0
         with:
           assignees: "monalisa, cgallup, hubot"
           labels: "weekly sync, docs-team"
