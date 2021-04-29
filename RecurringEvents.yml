@@ -14,9 +14,10 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Set Date
-        run: echo "DATE=$(date -u '+%F')" >> $GITHUB_ENV
-        
+      - name: Set current date as env variable
+        run: echo "NOW::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+      - name: Echo current date
+        run: echo $NOW
       - name: Create team sync issue
         uses: imjohnbo/issue-bot@v3
         with:
