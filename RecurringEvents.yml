@@ -1,7 +1,11 @@
+# Bot by work of Steve Winton (@swinton) and John Bohannon (@imjohnbo)
+# Source at: https://github.com/imjohnbo/issue-bot  
+# Bot written in Java see index.js
+
 name: Weekly Team Sync
 on:
   schedule:
-    - cron: * * * * *
+    - cron: 5 * * * *
 
 jobs:
   create_issue:
